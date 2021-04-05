@@ -32,17 +32,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 checkField( txtuser);
                 checkField( txtpass);
-                if (valid)
-                {
-                    txtuser.getText().toString().equals("20160140003");
-                    txtpass.getText().toString().equals("123");
-                    Toast.makeText(getApplicationContext(),"LOGIN BERHASIL", Toast.LENGTH_LONG).show();
-                    Intent login = new Intent (MainActivity.this, Home.class);
-                    startActivity(login);
-
-
-                } else
-                    Toast.makeText(MainActivity.this, "User atau Password Salah", Toast.LENGTH_SHORT).show();
+                if (valid) {
+                    if (
+                            txtuser.getText().toString().equals("20160140003") &&
+                                    txtpass.getText().toString().equals("123"))
+                    {
+                        Toast.makeText(getApplicationContext(), "LOGIN BERHASIL", Toast.LENGTH_LONG).show();
+                        Intent login = new Intent(MainActivity.this, Home.class);
+                        startActivity(login);
+                    }else Toast.makeText(MainActivity.this, "User atau Password Salah", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
