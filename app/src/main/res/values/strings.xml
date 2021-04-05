@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">excersise1</string>
+    <string name="lihatdata">lihatdata</string>
+    <string name="editdata">editdata</string>
+    <string name="datakontak">datakontak</string>
+    <string name="namaitem">namaitem</string>
+    <string name="detailkontak">detailkontak</string>
+    <string name="nama">nama</string>
+    <string name="email">email</string>
+    <string name="pass">pass</string>
+</resources>
