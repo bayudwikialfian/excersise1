@@ -51,7 +51,7 @@ public class Daftar extends AppCompatActivity {
 
                 //chack
                 if(!( laki.isChecked()||perempuan.isChecked())){
-                    Toast.makeText(Daftar.this,"harus di isi",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Daftar.this,"data harus di isi",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
