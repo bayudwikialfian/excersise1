@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 checkField( txtpass);
                 if (valid) {
                     if (
-                            txtuser.getText().toString().equals("20160140003") &&
-                                    txtpass.getText().toString().equals("123"))
+                            txtuser.getText().toString().equals("20160140003")&&txtpass.getText().toString().equals("123"))
                     {
                         Toast.makeText(getApplicationContext(), "LOGIN BERHASIL", Toast.LENGTH_LONG).show();
                         Intent login = new Intent(MainActivity.this, Home.class);
