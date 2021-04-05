@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -21,6 +18,8 @@ public class Daftar extends AppCompatActivity {
     RadioButton laki,perempuan;
 
     Button btnSubmit,btngagal;
+
+    boolean valid = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +43,10 @@ public class Daftar extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkField( edtemail);
+                checkField(  edtpassword);
+                checkField(  edtrepassword);
+                checkField(  edtNama);
 
 
                 //chack
@@ -52,11 +55,13 @@ public class Daftar extends AppCompatActivity {
                     return;
                 }
 
-                if (edtNama.getText().toString().isEmpty() ||
-                    edtemail.getText().toString().isEmpty() ||
-                    edtpassword.getText().toString().isEmpty() ||
-                    edtrepassword.getText().toString().isEmpty()) {
-                    Snackbar.make(v, "data harus di isi", Snackbar.LENGTH_SHORT).show();
+                if (valid)
+                {
+                    edtNama.getText().toString().isEmpty();
+                    edtemail.getText().toString().isEmpty();
+                    edtpassword.getText().toString().isEmpty();
+                    edtrepassword.getText().toString().isEmpty();
+
                 }
                 else
                 {
@@ -72,5 +77,16 @@ public class Daftar extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean checkField(EditText textField) {
+        if(textField.getText().toString().isEmpty()){
+            textField.setError("Harus di isi ");
+            valid = false;
+        }else {
+            valid = true;
+        }
+
+        return valid;
     }
 }

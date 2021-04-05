@@ -13,11 +13,15 @@ public class MainActivity extends AppCompatActivity {
     EditText txtuser;
     EditText txtpass;
     Button logbtn,dafbtn;
+
+
+    boolean valid = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtuser = (EditText) findViewById(R.id.nim);
+
         txtpass = (EditText) findViewById(R.id.Password);
 
         logbtn = (Button) findViewById(R.id.logbtn);
@@ -26,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
         logbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (txtuser.getText().toString().equals("20160140003") && txtpass.getText().toString().equals("123")) {
+                checkField( txtuser);
+                checkField( txtpass);
+                if (valid)
+                {
+                    txtuser.getText().toString().equals("20160140003");
+                    txtpass.getText().toString().equals("123");
                     Toast.makeText(getApplicationContext(),"LOGIN BERHASIL", Toast.LENGTH_LONG).show();
                     Intent login = new Intent (MainActivity.this, Home.class);
                     startActivity(login);
@@ -45,5 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+    private boolean checkField(EditText textField) {
+        if(textField.getText().toString().isEmpty()){
+            textField.setError("Harus di isi");
+            valid = false;
+        }else {
+            valid = true;
+        }
+
+        return valid;
     }
 }
